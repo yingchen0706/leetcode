@@ -7,8 +7,10 @@ class Solution {
         for (int i = 0; i < nums.length; i++) {
             int t1 = min*nums[i];
             int t2 = max*nums[i];
-            max = Math.max(t1, t2) > 0 ? Math.max(t1, t2) : nums[i];
-            min = Math.min(t1, t2) < 0 ? Math.min(t1, t2) : nums[i];
+            int tmax = Math.max(t1, t2);
+            int tmin = Math.min(t1, t2); 
+            max =  tmax > 0 ? tmax : nums[i];
+            min = tmin < 0 ? tmin : nums[i];
             res = Math.max(max, res);
         }
         return res;
