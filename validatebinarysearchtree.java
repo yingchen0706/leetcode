@@ -17,11 +17,13 @@ class Solution {
     }
     
     private boolean isValidSubBST(TreeNode root, Integer min, Integer max) {
+        if (root == null) {
+            return true;
+        }
         if ((min !=null && root.val <= min) || (max != null && root.val >=max)) {
             return false;
         }
-        boolean left = (root.left == null) || isValidSubBST(root.left, min, root.val);
-        boolean right = (root.right == null) || isValidSubBST(root.right, root.val, max);
-        return left && right;
+        return isValidSubBST(root.left, min, root.val) && isValidSubBST(root.right, root.val, max);
+
     }
 }
